@@ -39,20 +39,7 @@ function getClient()
         $authUrl = $client->createAuthUrl();
         printf("Open the following link in your browser:\n%s\n", $authUrl);
         print 'Enter verification code: ';
-        $authCode = trim(fgets(STDINuser "takuro-kamiyoshi", :path=>"/" do
-  login_profile :password_reset_required=>false
-
-  groups(
-    "dialogone-poweruser",
-    "dialogone-user",
-    "support-access"
-  )
-
-  # no policy
-
-  attached_managed_policies(
-    # attached_managed_policy
-  )));
+        $authCode = trim(fgets(STDIN));
         // Exchange authorization code for an access token.
         $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
         // Check to see if there was an error.
